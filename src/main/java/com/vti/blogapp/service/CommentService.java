@@ -17,4 +17,6 @@ public interface CommentService {
     CommentDto update(CommentUpdateForm form, Long id);
 
     void deleteById(Long id);
+
+    void deleteByEmail(String email);
 }
