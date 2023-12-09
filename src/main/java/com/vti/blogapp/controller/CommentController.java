@@ -28,4 +28,9 @@ public class CommentController {
     public CommentDto update(@RequestBody CommentUpdateForm form, @PathVariable("id") Long id){
        return commentService.update(form, id);
     }
+
+    @DeleteMapping("/api/v1/comments/{id}")
+    public void deleteById(@PathVariable("id") Long id){
+       commentService.deleteById(id);
+    }
 }

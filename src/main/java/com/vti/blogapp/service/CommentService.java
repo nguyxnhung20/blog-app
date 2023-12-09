@@ -13,4 +13,6 @@ public interface CommentService {
     CommentDto create(CommentCreateForm form, Long postId);
 
     CommentDto update(CommentUpdateForm form, Long id);
+
+    void deleteById(Long id);
 }
