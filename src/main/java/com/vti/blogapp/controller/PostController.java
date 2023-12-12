@@ -6,15 +6,18 @@ import com.vti.blogapp.form.PostFilterForm;
 import com.vti.blogapp.form.PostUpdateForm;
 import com.vti.blogapp.service.PostService;
 import com.vti.blogapp.specification.PostSpecification;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@Validated
 public class PostController {
     private final PostService postService;
 
@@ -29,7 +32,7 @@ public class PostController {
     }
 
     @PostMapping("/api/v1/posts")
-    public PostDto create(@RequestBody PostCreateForm form){
+    public PostDto create(@RequestBody @Valid PostCreateForm form){
         return postService.create(form);
     }
     @PutMapping("/api/v1/posts/{id}")
