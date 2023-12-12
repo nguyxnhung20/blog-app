@@ -23,7 +23,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
             var value = error.getDefaultMessage();
             errors.put(key, value);
         }
-        var respone = new ErrorResponse(message, errors);
-        return new ResponseEntity<>(respone,headers, status);
+        var response = new ErrorResponse(message, errors);
+        return new ResponseEntity<>(response,headers, status);
     }
 }
